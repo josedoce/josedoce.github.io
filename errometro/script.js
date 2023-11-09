@@ -94,8 +94,6 @@ class Aviso {
 }
 
 function dialog({title, message}) {
-    //const title = "Mensagem de aviso"
-    //const message = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem, voluptatibus eligendi odit optio voluptatum, at possimus assumenda, aspernatur aliquid neque rerum! Inventore reiciendis eos impedit nihil consequatur animi. Aperiam, atque?";
     const sizeIcon = 24;
     const icon = `<svg style="margin:0; width: ${sizeIcon}px; height:${sizeIcon};" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16">
     <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
@@ -134,13 +132,3 @@ function dialog({title, message}) {
     }
     id++;
 }
-
-
-const av1 = new Aviso("Aviso 1", "conteudo da mensagem 1");
-const content = av1.content
-
-const av2 = new Aviso("Aviso 2", "conteudo da mensagem 2");
-const content2 = av2.content
-
-const av3 = new Aviso("Aviso 3", "conteudo da mensagem 3");
-const content3 = av3.content

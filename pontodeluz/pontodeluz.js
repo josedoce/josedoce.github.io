@@ -1,6 +1,29 @@
 /**
  * @author josedoce
  */
+document.body.innerHTML=`
+<style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        #tela {
+            background-image: url(CASAWALLPAPER.jpeg); 
+            overflow: hidden;
+           background-position: center center; 
+           background-repeat: no-repeat; 
+           background-size: cover; 
+           filter: blur(0px); 
+           opacity: 1;
+           width: 100%;
+           height: 100vh;
+           display: flex;
+           flex-wrap: wrap;
+        }
+</style>
+<div id="tela"></div>
+`;
 
 function update() {
   
@@ -31,7 +54,7 @@ function update() {
         let cY = 0;
         
         //geração aleatoria
-        for(let i = 0; i < 45; i++){
+        for(let i = 0; i < pessoas.length; i++){
              // lets create default group with two overlapping shapes
             const cx = Math.random() * stage.width()
             const cy = Math.random() * stage.height()
@@ -71,7 +94,7 @@ function update() {
 
             image.getTransform().rotate(Math.random() * 360)
             group1.add(image)
-            imageObj.src = './s.png'
+            imageObj.src = 'https://raw.githubusercontent.com/josedoce/josedoce.github.io/main/pontodeluz/s.png'
             
             text.opacity(0)
 

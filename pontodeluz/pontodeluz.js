@@ -1,6 +1,30 @@
 /**
  * @author josedoce
  */
+if(telacheia) {
+  document.body.innerHTML = `<style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        #tela {
+            background-image: url(https://www.c-online.med.br/wp-content/uploads/2023/10/CASAWALLPAPER.jpeg); 
+            overflow: hidden;
+           background-position: center center; 
+           background-repeat: no-repeat; 
+           background-size: cover; 
+           filter: blur(0px); 
+           opacity: 1;
+           width: 100%;
+           height: 100vh;
+           display: flex;
+           flex-wrap: wrap;
+        }
+</style>
+<div id="tela"></div>`
+}
+
 function update() {
   
         let width = window.innerWidth;

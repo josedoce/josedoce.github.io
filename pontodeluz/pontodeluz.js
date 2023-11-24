@@ -9,7 +9,7 @@ document.body.innerHTML=`
             box-sizing: border-box;
         }
         #tela {
-            background-image: url(CASAWALLPAPER.jpeg); 
+            background-image: url(https://www.c-online.med.br/wp-content/uploads/2023/10/CASAWALLPAPER.jpeg); 
             overflow: hidden;
            background-position: center center; 
            background-repeat: no-repeat; 

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./produto.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <script src="
+https://cdn.jsdelivr.net/npm/swiper@11.0.5/swiper-bundle.min.js
+"></script>
+<link href="
+https://cdn.jsdelivr.net/npm/swiper@11.0.5/swiper-bundle.min.css
+" rel="stylesheet">
+<!-- Development version -->
+<script src="https://unpkg.com/@popperjs/core@2/dist/umd/popper.js"></script>
+
+<!-- Production version -->
+<!-- <script src="https://unpkg.com/@popperjs/core@2"></script> -->
+  <style>
+    * {
+      font-family: 'Roboto', sans-serif;
+      box-sizing: border-box;
+      padding: 0;
+      margin: 0;
+    }
+  </style>
+  <title>DISPLAY GRID</title>
+</head>
+<body>
+  <section>
+    <div id="produto" class="produto">
+      <div class="produto-informacao">
+        <h2>Lorem, ipsum dolor.</h2>
+        <div class="precim">
+          <div class="precim-antes">
+            <h5>Deixou de ser <del>R$ 3,90</del></h5>
+            <strong>para que você leve por apenas: </strong>
+          </div>
+          <h4>R$ 2,20 em até 12x no cartão</h4>
+        </div>
+        <hr/>
+        <div class="informacoesproduto">
+          <h3>Resumo</h3>
+          <ul class="resumo">
+            <li>
+              <div>
+                <strong>Descricao</strong>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab deleniti numquam qui odio voluptatibus aliquid sed iusto aut? Ratione quaerat neque ducimus dignissimos, voluptatum porro similique cupiditate repellendus dolores animi.</p>
+              </div>
+            </li>
+            <li>
+              <div>
+                <strong>Ficha</strong>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab deleniti numquam qui odio voluptatibus aliquid sed iusto aut? Ratione quaerat neque ducimus dignissimos, voluptatum porro similique cupiditate repellendus dolores animi.</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="comprarproduto">
+          <button>quero este produto</button>
+        </div>
+      </div>
+
+      <div class="fotos">
+        <div class="swiper">
+          <!-- Additional required wrapper -->
+          <div class="swiper-wrapper">
+            <!-- Slides -->
+            <div class="swiper-slide">
+              <img class="slide-image" src="./assets/slide/produto1.jpg" style="object-fit: contain; background-color: #f3f5f2;" width="100%" height="100%"/>
+            </div>
+            <div class="swiper-slide">
+              <img class="slide-image" src="./assets/slide/produto2.jpg" style="object-fit: contain; background-color: #f3f5f2;" width="100%" height="100%"/>
+            </div>
+  
+            <div class="swiper-slide">
+              <img class="slide-image" src="./assets/slide/produto3.jpeg" style="object-fit: contain; background-color: #f3f5f2;" width="100%" height="100%"/>
+            </div>
+          </div>
+        </div>
+        <div class="acoes">
+          <button id="botaofavoritar" aria-describedby="tooltip">
+            <span class="add-fav"></span>
+          </button>
+          <button id="botaocarrinho" aria-describedby="tooltip">
+            <span class="add-car"></span>
+          </button>
+        </div>
+      </div>
+
+      <div class="painel-cores">
+        <strong>escolha as cores que você desejar</strong>
+        <ul class="cores">
+         <!-- gerado por script -->
+        </ul>
+      </div>
+      <div class="painel-quantidade">
+        <strong>escolha quantas unidades desejar</strong>
+        <ul>
+          <li><button class="btns">-</button></li>
+          <li><input type="text" value="1" /></li>
+          <li><button class="btns">+</button></li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+  <footer class="footer">
+    <p>
+      feito com paciencia e dedicação por <a href="http://github.com/josedoce">js</a>
+    </p>
+  </footer>
+  <div id="tooltip" role="tooltip" style="display: none;">
+    <div id="arrow" data-popper-arrow></div>
+    <p id="tooltip-text"></p>
+  </div>
+
+  <canvas hidden id="meucanva" width="100%"></canvas>
+  <script src="./js/pegacor.js"></script>
+  <script src="./js/tooltip.js"></script>
+  <script>
+    const target1 = document.querySelector('#botaofavoritar');
+    const target2 = document.querySelector('#botaocarrinho');
+    configurarPopover(target1, 'Favoritar este produto');
+    configurarPopover(target2, 'Adicionar ao carrinho');
+
+
+    const opcoesCores = document.querySelector('.cores');
+    geradorDeCores(10).forEach((cor)=>{
+      opcoesCores.innerHTML+= `
+      <li><button class="cor" style="background-color: ${cor}"></button></li>
+      `
+    })
+  </script>
+  <script>
+    const slideImagens = document.querySelectorAll('.slide-image')
+    slideImagens.forEach((image)=>{
+      getColors(image.src)
+      .then((res)=>{
+        image.style.background = `linear-gradient(${res.cor1}, ${res.cor2}, ${res.cor3}, ${res.cor4})`
+      })
+    })
+
+    
+    const swiper = new Swiper('.swiper', {
+      // Optional parameters
+      direction: 'horizontal',
+      loop: true,
+      autoplay: {
+          delay: 2500,
+          disableOnInteraction: false,
+      },
+    });
+
+
+  </script>
+</body>
+</html>

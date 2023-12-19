@@ -1,0 +1,107 @@
+body {
+  background: linear-gradient(90deg, rgb(201, 248, 241), rgb(89, 210, 210));
+  padding: 0 10px;
+}
+.swiper {
+  margin-top: 80px;
+  width: 100%;
+  height: 300px;
+  border-radius: 4px;
+
+  @media (min-width: 768px) {
+    max-width: 680px;
+    grid-template-columns: repeat(3, minmax(200px, 100%));
+  }
+
+  @media (min-width: 1024px) {
+    max-width: 880px;
+    grid-template-columns: repeat(4, minmax(200px, 100%));
+  }
+
+  @media (min-width: 1280px) {
+    max-width: 1024px;
+    grid-template-columns: repeat(4, minmax(200px, 100%));
+  }
+}
+.slide-image {
+  mix-blend-mode: soft-light;
+}
+.produtos {
+  margin: 80px auto;
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(2, minmax(100px, 100%));
+  grid-auto-rows: minmax(180px, auto);
+  row-gap: 38px;
+  @media (min-width: 768px) {
+    max-width: 680px;
+    grid-template-columns: repeat(3, minmax(200px, 100%));
+  }
+
+  @media (min-width: 1024px) {
+    max-width: 880px;
+    grid-template-columns: repeat(4, minmax(200px, 100%));
+  }
+
+  @media (min-width: 1280px) {
+    max-width: 1024px;
+    grid-template-columns: repeat(4, minmax(200px, 100%));
+  }
+}
+
+.produto {
+  overflow: hidden;
+  cursor: pointer;
+  color: #023f47;
+  border-radius: 4px;
+  padding-bottom: 20px;
+  position: relative;
+}
+.produto:hover {
+  box-shadow: 0px 0px 4px 1px rgba(0, 0, 0, 0.196);
+  background-color: #e3e2e292;
+}
+
+
+.produto-promocional {
+  position: absolute;
+  background-color: orangered;
+  color: whitesmoke;
+  font-size: 12px;
+  padding: 2px 0;
+  font-weight: 700;
+  border-radius: 4px;
+  margin-left: 4px;
+  margin-top: 4px;
+}
+
+.produto-informacao {
+  padding: 6px;
+}
+
+.precim>h4{
+  display: block;
+  text-align: center; 
+  font-size: 22px;
+}
+
+.precim-antes>h5{
+  margin: 0;
+  margin-left: 20px;
+  text-decoration: line-through;
+  text-transform: capitalize;
+}
+.precim-antes>strong {
+  text-align: center;
+}
+.precim-antes {
+  display: flex;
+  flex-direction: column;
+ 
+}
+
+.footer {
+  margin: 80px 0;
+  display: flex;
+  justify-content: center;
+}

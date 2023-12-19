@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./index.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <script src="
+https://cdn.jsdelivr.net/npm/swiper@11.0.5/swiper-bundle.min.js
+"></script>
+<link href="
+https://cdn.jsdelivr.net/npm/swiper@11.0.5/swiper-bundle.min.css
+" rel="stylesheet">
+  <style>
+    * {
+      font-family: 'Roboto', sans-serif;
+      box-sizing: border-box;
+      padding: 0;
+      margin: 0;
+    }
+  </style>
+  <title>DISPLAY GRID</title>
+</head>
+<body>
+  <main>
+    <!-- Slider main container -->
+    <div class="swiper">
+      <!-- Additional required wrapper -->
+      <div class="swiper-wrapper">
+        <!-- Slides -->
+        <div class="swiper-slide">
+          <img class="slide-image" src="./assets/slide/produto1.jpg" style="object-fit: contain; background-color: #f3f5f2;" width="100%" height="100%"/>
+        </div>
+        <div class="swiper-slide">
+          <img class="slide-image" src="./assets/slide/produto2.jpg" style="object-fit: contain; background-color: #f3f5f2;" width="100%" height="100%"/>
+        </div>
+
+        <div class="swiper-slide">
+          <img class="slide-image" src="./assets/slide/produto3.jpeg" style="object-fit: contain; background-color: #f3f5f2;" width="100%" height="100%"/>
+        </div>
+      </div>
+     
+    </div>
+  </main>
+  <section>
+    <div id="produtos" class="produtos">
+      <!-- modelo do produto -->
+      <div class="produto">
+        <div class="produto-imagem">
+          <div class="produto-promocional">
+            <span>x-1</span>
+          </div>
+          <img src="x-2" width="100%"/>
+        </div>
+        <div class="produto-informacao">
+          <strong>Lorem, ipsum dolor.</strong>
+          <div class="precim">
+            <div class="precim-antes">
+              <h5>de R$ 3,90</h5>
+              <strong>por apenas</strong>
+            </div>
+            <h4>R$ 2,20</h4>
+          </div>
+        </div>
+      </div>
+      <!-- modelo do produto -->
+    </div>
+  </section>
+  <footer class="footer">
+    <p>
+      feito com paciencia e dedicação por <a href="http://github.com/josedoce">js</a>
+    </p>
+  </footer>
+  <canvas hidden id="meucanva" width="100%"></canvas>
+  <script src="./js/pegacor.js"></script>
+  <script>
+    const slideImagens = document.querySelectorAll('.slide-image')
+    slideImagens.forEach((image)=>{
+
+      getColors(image.src)
+      .then((res)=>{
+        image.style.background = `linear-gradient(${res.cor1}, ${res.cor2}, ${res.cor3}, ${res.cor4})`
+      })
+    })
+
+    const grade = document.getElementById('produtos');
+    const cardProduto = document.querySelector('.produto')
+    const verProduto = (id)=>{
+      window.location.href = "/produto.html?produtoId="+id
+    }
+
+    const pegarPromocao = () => {
+      const range = 10;
+      const rN = Math.floor(Math.random() * range)
+      const promocoes = [
+        '',
+        '-10%',
+        '-20%',
+        '-30%',
+        '-40%',
+        '-50%',
+        '-60%',
+        '-70%',
+        '-80%',
+        '-90%',
+        '-100%',
+      ];
+
+      if(promocoes[rN] == ''){
+        return ''
+      }
+      
+      return "&nbsp;" +promocoes[rN] + "&nbsp;";
+    }
+
+    const pegarFoto = () => {
+      const range = 2;
+      const fotos = [
+        './assets/produto1.jpg',
+        './assets/produto2.jpg'
+      ];
+      return fotos[Math.floor(Math.random() * range)];
+    }
+
+    const subst = (elemento, a, b) => {
+      elemento.innerHTML=elemento.innerHTML.replace(a, b)
+    }
+
+    cardProduto.remove()
+    for(let i = 0; i < 24; i++){ 
+      const clone = cardProduto.cloneNode(true);
+     
+      subst(clone, 'x-1', pegarPromocao())
+      subst(clone, 'x-2', pegarFoto())
+
+      clone.onclick = (event)=> verProduto(i)
+      grade.append(clone)
+    
+    
+
+    }
+    
+    const swiper = new Swiper('.swiper', {
+      // Optional parameters
+      direction: 'horizontal',
+      loop: true,
+      autoplay: {
+          delay: 2500,
+          disableOnInteraction: false,
+      },
+    });
+
+
+  </script>
+</body>
+</html>

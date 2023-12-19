@@ -1,0 +1,265 @@
+#tooltip {
+  z-index: 9999;
+  background-color: #2dc3fa;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-size: 13px;
+}
+
+#tooltip[data-popper-placement^='top'] > #arrow {
+  bottom: -4px;
+}
+
+#tooltip[data-popper-placement^='bottom'] > #arrow {
+  top: -4px;
+}
+
+#tooltip[data-popper-placement^='left'] > #arrow {
+  right: -4px;
+}
+
+#tooltip[data-popper-placement^='right'] > #arrow {
+  left: -4px;
+}
+
+#arrow,
+#arrow::before {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  z-index: -1;
+}
+
+#arrow::before {
+  content: '';
+  transform: rotate(45deg);
+  background-color: #2dc3fa;
+}
+
+.produto {
+  padding: 0px 20px;
+  column-gap: 20px;
+  row-gap: 20px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(200px, 600px));
+  grid-template-rows: minmax(500px, 600px) auto auto minmax(500px, 600px);
+  margin: 0 auto;
+  margin-top: 20px;
+  @media (min-width: 768px) {
+    padding: 0;
+    max-width: 680px;
+    grid-template-rows: 500px auto;
+  }
+
+  @media (min-width: 1024px) {
+    max-width: 880px; 
+  }
+  @media (min-width: 1280px) {
+    max-width: 1024px;
+  }
+}
+
+.fotos, .swiper {
+  width: 100%;
+  height: 100%; 
+}
+
+.produto-informacao {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  text-align: justify;
+  padding: 12px 26px;
+  border: 1px solid rgba(0, 0, 0, 0.226);
+  border-radius: 8px;
+  grid-column: 1/-1;
+  grid-row: 4/5;
+  @media (min-width: 768px) {
+    grid-column: 2/3;
+    grid-row: 1/2;
+    align-items: center;
+  }
+}
+.produto-informacao>hr{
+  width: 100%;
+  border: 1px solid rgb(10, 164, 118);
+}
+.precim {
+  margin-top: 14px;
+  width: 100%;
+}
+
+.precim-antes>h5{
+  font-size: 18px;
+}
+.precim-antes>strong{
+  display: block;
+  margin-top: 5px;
+  margin-left: 10px;
+}
+.precim>h4 {
+  margin-top: 18px;
+  font-size: 24px;
+  text-align: center;
+}
+.resumo {
+  list-style: none;
+}
+.resumo>li {
+  margin: 20px 0;
+}
+.resumo>li>div>strong{
+  color: #404040;
+}
+.resumo>li>div>p {
+  color: #303030;
+}
+.fotos {
+  border: 1px solid rgba(0, 0, 0, 0.226);
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+  grid-column: 1/-1;
+  grid-row: 1/2;
+  align-self: center;
+  @media (min-width: 768px) {
+    grid-column: 1/2;
+  }
+}
+.painel-cores {
+  grid-column: 1/-1;
+  grid-row: 2/3;
+  @media (min-width: 768px) {
+    grid-column: 1/2;
+    grid-row: 2/-1;
+  }
+}
+
+.painel-quantidade{
+  grid-column: 1/-1;
+  grid-row: 3/4;
+  @media (min-width: 768px) {
+    grid-column: 2/3;
+    grid-row: 2/-1;
+  }
+}
+
+.painel-cores, .painel-quantidade {
+  padding: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.226);
+  border-radius: 8px;
+  overflow: hidden;
+}
+.painel-cores>strong {
+  color: #404040;
+  display: block;
+  text-align: center;
+  text-transform: uppercase;
+}
+.cores {
+  list-style: none;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.cor, .btns {
+  cursor: pointer;
+  display: block;
+  border-radius: 16px;
+  width: 32px;
+  height: 32px;
+  border: 1px solid gray;
+}
+.cor:hover, .btns:hover{
+  box-shadow: 1px 2px 2px 1px rgb(176, 176, 176);
+}
+.painel-quantidade>strong {
+  color: #404040;
+  display: block;
+  text-align: center;
+  text-transform: uppercase;
+}
+.painel-quantidade>ul {
+  justify-content: center;
+  margin-top: 10px;
+  list-style: none;
+  display: flex;
+  align-items: center;
+}
+.painel-quantidade>ul>li>input[type=text] {
+  font-size: 22px;
+  width: 34px;
+  height: 100%;
+  text-align: center;
+  border: none;
+}
+
+.acoes {
+  width: 100%;
+  z-index: 9999;
+  position: absolute;
+  bottom: 0;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  
+}
+.acoes>button {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  background-color: rgb(43, 137, 226);
+  border-radius: 50%;
+  border: 1px solid rgb(11, 130, 157);
+  padding: 12px;
+}
+
+.add-fav {
+  background: url(./assets/icons/heart-fill.svg);
+  background-size: cover;
+  background-position: center;
+  width: 24px;
+  height: 24px;
+  display: block;
+}
+.add-car {
+  background: url(./assets/icons/add-car.svg);
+  background-size: cover;
+  width: 24px;
+  height: 24px;
+  display: block;
+}
+
+.comprarproduto{
+  display: flex;
+  
+  width: 100%;
+}
+.comprarproduto>button {
+  background-color: rgb(10, 164, 118);
+  color: white;
+  display: block;
+  width: 100%;
+  padding: 8px 0px;
+  font-weight: 500;
+  font-size: 18px;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.comprarproduto>button:hover{
+  background-color: rgba(10, 164, 118, 0.643);
+  color: rgb(255, 255, 255);
+  box-shadow: 0px 2px 2px 1px rgb(10, 164, 118);
+}
+
+.footer {
+  margin: 80px 0;
+  display: flex;
+  justify-content: center;
+}

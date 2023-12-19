@@ -39,7 +39,6 @@
 
 .produto {
   padding: 0px 20px;
-  column-gap: 20px;
   row-gap: 20px;
   display: grid;
   grid-template-columns: repeat(2, minmax(200px, 600px));
@@ -50,6 +49,7 @@
     padding: 0;
     max-width: 680px;
     grid-template-rows: 500px auto;
+    column-gap: 20px;
   }
 
   @media (min-width: 1024px) {

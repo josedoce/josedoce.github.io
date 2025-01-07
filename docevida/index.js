@@ -64,7 +64,7 @@ const produtos = [
 	{ id:2502,tags:[tags.SEMGLUTEN]},
 	{ id:2503,tags:[tags.ZEROACUCAR, tags.SEMGLUTEN]},
 	{ id:2542,tags:[tags.ZEROACUCAR]},
-	{ id:2603,tags:[tags.SEMLACTOSE]},
+	{ id:2603,tags:[tags.SEMLACTOSE, tags.SEMGLUTEN]},
 	{ id:2610,tags:[]},
 	{ id:2629,tags:[tags.SEMGLUTEN, tags.SEMLACTOSE]},
 	{ id:2256,tags:[]},

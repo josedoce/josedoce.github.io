@@ -135,13 +135,15 @@ function tagnizar(produto) {
 	if(produto.tags.length === 0) {
 		return
 	}
-	const elementoAlvo = document.getElementById(produto.id);
-	if(!elementoAlvo){
+	const elementoAlvo = document.querySelectorAll(`.tag-${produto.id}`);
+	if(!elementoAlvo.length === 0){
 		return
 	}
-	
-	produto.tags.forEach((p)=>{
-		elementoAlvo.innerHTML+=`<a href="${p.link}">${p.titulo}</a>`;
+
+	elementoAlvo.forEach((ea)=>{
+		produto.tags.forEach((p)=>{
+			ea.innerHTML+=`<a href="${p.link}">${p.titulo}</a>`;
+		});
 	});
 	
 }  

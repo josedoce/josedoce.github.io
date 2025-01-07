@@ -1,0 +1,23 @@
+.silviotags {
+		position: absolute;
+	  bottom: 0;
+	  padding: 0 10px;
+	  display: flex;
+	  flex-wrap: wrap;
+	  z-index: 1;
+	  justify-content: center;
+	  width: 100%;
+	}
+
+	.silviotags > a {
+	    margin: 1px;
+	    padding: 0 4px;
+	    border-radius: 6px;
+	    color: #10b529;
+	    border: 1px solid #10b529;
+	}
+
+	.silviotags>a:hover {
+	    color: white;
+	    background: #10b529;
+	}

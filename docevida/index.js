@@ -70,7 +70,7 @@ const produtos = [
 	{ id:2256,tags:[]},
 	{ id:2621,tags:[]},
 	{ id:2622,tags:[]},
-	{ id:2623,tags:[]},
+	{ id:2623,tags:[tags.VEGANO]},
 	{ id:2625,tags:[]},
 	{ id:3045,tags:[tags.SEMGLUTEN ]},
 	{ id:3112,tags:[]},

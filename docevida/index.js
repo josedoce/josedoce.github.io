@@ -125,7 +125,8 @@ const produtos = [
 	{ id:5339,tags:[]},
 	{ id:3163,tags:[]},
 	{ id:3162,tags:[]},
-	{ id:3165,tags:[]}
+	{ id:3165,tags:[]},
+	{ id: 1797, tags: [ tags.ZEROACUCAR ]}
 ];
 
 function tagnizar(produto) {

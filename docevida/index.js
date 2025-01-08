@@ -73,7 +73,7 @@ const produtos = [
 	{ id:2623,tags:[tags.VEGANO]},
 	{ id:2625,tags:[]},
 	{ id:3045,tags:[tags.SEMGLUTEN ]},
-	{ id:3112,tags:[]},
+	{ id:3112,tags:[tags.SEMLACTOSE]},
 	{ id:3164,tags:[tags.NATURAL]},
 	{ id:3172,tags:[tags.ZEROACUCAR, tags.SEMGLUTEN, tags.SEMLACTOSE]},
 	{ id:3173,tags:[tags.ZEROACUCAR, tags.SEMGLUTEN, tags.SEMLACTOSE]},

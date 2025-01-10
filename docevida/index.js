@@ -1,3 +1,6 @@
+/**
+* @author JOSEDOCE
+*/
 const tags = {
 	ORGANICO : {
 		id: 1,
@@ -86,7 +89,7 @@ const produtos = [
 	{ id:3185,tags:[tags.SEMGLUTEN]},
 	{ id:3186,tags:[tags.SEMGLUTEN]},
 	{ id:3187,tags:[tags.SEMGLUTEN]},
-	{ id:3188,tags:[]},
+	{ id:3188,tags:[tags.SEMLACTOSE]},
 	{ id:2325,tags:[]},
 	{ id:2336,tags:[]},
 	{ id:2456,tags:[]},

@@ -161,7 +161,7 @@ const produtos = [
 	{ id: 5682, tags: [ tags.SEMGLUTEN, tags.INTEGRAL, tags.VEGANO ]},
 	{ id: 1807, tags: [ tags.SEMGLUTEN, tags.INTEGRAL, tags.VEGANO ]},
 	{ id: 5683, tags: [ tags.SEMGLUTEN, tags.INTEGRAL, tags.VEGANO ]},
-
+	{ id: 3111, tags: [ tags.VEGANO ]},
 	
 	{ id: 5971, tags: [ tags.SEMGLUTEN, tags.INTEGRAL, tags.VEGANO ]},
 ];

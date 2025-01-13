@@ -77,8 +77,13 @@ const produtos = [
 	{ id:2610,tags:[]},
 	{ id:2629,tags:[tags.SEMGLUTEN, tags.SEMLACTOSE]},
 	{ id:9106,tags:[tags.ZEROACUCAR, tags.SEMGLUTEN]},
-	{ id:1498,tags:[tags.ZEROACUCAR, tags.SEMGLUTEN]},
-	
+	{ id:1498,tags:[ tags.SEMGLUTEN]},
+	{ id:1499,tags:[ tags.SEMGLUTEN]},
+	{ id:2054,tags:[ tags.ZEROACUCAR]},
+	{ id:2058,tags:[ tags.ZEROACUCAR]},
+	{ id:2055,tags:[ tags.ZEROACUCAR]},
+	{ id:5137,tags:[ tags.SEMGLUTEN, tags.SEMLACTOSE ]},
+	{ id:2169,tags:[ tags.ZEROACUCAR ]},
 	{ id:2256,tags:[]},
 	{ id:2621,tags:[]},
 	{ id:2622,tags:[]},
@@ -90,6 +95,15 @@ const produtos = [
 	{ id:3045,tags:[tags.SEMGLUTEN ]},
 	{ id:3112,tags:[tags.SEMLACTOSE]},
 	{ id:3164,tags:[tags.NATURAL]},
+	{ id:1500,tags:[tags.ZEROACUCAR, tags.SEMGLUTEN, tags.SEMLACTOSE]},
+	
+	{ id:1613, tags:[tags.INTEGRAL, tags.SEMGLUTEN]},
+	 
+	{ id:1757, tags:[tags.INTEGRAL, tags.SEMGLUTEN]},
+	
+	{ id:6026,tags:[tags.INTEGRAL, tags.SEMGLUTEN]},
+	{ id: 6159, tags:[tags.INTEGRAL, tags.SEMGLUTEN]},
+	{ id:7475,tags:[tags.INTEGRAL, tags.SEMGLUTEN]},
 	{ id:3172,tags:[tags.ZEROACUCAR, tags.SEMGLUTEN, tags.SEMLACTOSE]},
 	{ id:3173,tags:[tags.ZEROACUCAR, tags.SEMGLUTEN, tags.SEMLACTOSE]},
 	{ id:1497,tags:[tags.ZEROACUCAR, tags.SEMGLUTEN, tags.SEMLACTOSE]},

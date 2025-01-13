@@ -162,8 +162,16 @@ const produtos = [
 	{ id: 1807, tags: [ tags.SEMGLUTEN, tags.INTEGRAL, tags.VEGANO ]},
 	{ id: 5683, tags: [ tags.SEMGLUTEN, tags.INTEGRAL, tags.VEGANO ]},
 	{ id: 3111, tags: [ tags.VEGANO ]},
+	{ id: 5971, tags: [ tags.SEMGLUTEN, tags.VEGANO ]},
+	{ id: 1902, tags: [ tags.SEMGLUTEN, tags.VEGANO ]},
+	{ id: 1806, tags: [ tags.SEMGLUTEN, tags.VEGANO ]},
+	{ id: 5681, tags: [ tags.SEMGLUTEN, tags.VEGANO ]},
+	{ id: 1909, tags: [ tags.SEMGLUTEN, tags.VEGANO ]},
+	{ id: 1811, tags: [ tags.SEMGLUTEN, tags.SEMLACTOSE ]},
+	{ id: 1810, tags: [ tags.SEMGLUTEN, tags.SEMLACTOSE ]},
+	//parei aqui, onde o produto é filtrado por nome
+	{ id: 1910, tags: [ tags.SEMGLUTEN, tags.SEMLACTOSE ]},
 	
-	{ id: 5971, tags: [ tags.SEMGLUTEN, tags.INTEGRAL, tags.VEGANO ]},
 ];
 
 function tagnizar(produto) {

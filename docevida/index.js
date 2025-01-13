@@ -43,7 +43,13 @@ const tags = {
 		id: 8,
 		titulo: 'Zero Sódio',
 		link: 'https://www.emporiodocevida.com.br/loja/busca.php?loja=1113620&palavra_busca=zero+s%F3dio'
-	}
+	},
+	INTEGRAL: {
+		id: 9,
+		titulo: 'Integral',
+		link: 'https://www.emporiodocevida.com.br/loja/busca.php?loja=1113620&palavra_busca=integral'
+	},
+	
 }
 
 const produtos = [
@@ -75,11 +81,15 @@ const produtos = [
 	{ id:2622,tags:[]},
 	{ id:2623,tags:[tags.VEGANO]},
 	{ id:2625,tags:[]},
+	{ id:1099,tags:[tags.SEMGLUTEN, tags.INTEGRAL ]},
+	{ id:1835,tags:[tags.SEMGLUTEN ]},
 	{ id:3045,tags:[tags.SEMGLUTEN ]},
 	{ id:3112,tags:[tags.SEMLACTOSE]},
 	{ id:3164,tags:[tags.NATURAL]},
 	{ id:3172,tags:[tags.ZEROACUCAR, tags.SEMGLUTEN, tags.SEMLACTOSE]},
 	{ id:3173,tags:[tags.ZEROACUCAR, tags.SEMGLUTEN, tags.SEMLACTOSE]},
+	{ id:1497,tags:[tags.ZEROACUCAR, tags.SEMGLUTEN, tags.SEMLACTOSE]},
+	{ id:2613,tags:[tags.ZEROACUCAR]},
 	{ id:2223,tags:[]},
 	{ id:3177,tags:[]},
 	{ id:3181,tags:[tags.SEMGLUTEN]},

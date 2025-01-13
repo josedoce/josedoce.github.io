@@ -96,11 +96,9 @@ const produtos = [
 	{ id:3112,tags:[tags.SEMLACTOSE]},
 	{ id:3164,tags:[tags.NATURAL]},
 	{ id:1500,tags:[tags.ZEROACUCAR, tags.SEMGLUTEN, tags.SEMLACTOSE]},
-	
 	{ id:1613, tags:[tags.INTEGRAL, tags.SEMGLUTEN]},
-	 
+	{ id:1615, tags: [ tags.SEMGLUTEN, tags.SEMLACTOSE ]},
 	{ id:1757, tags:[tags.INTEGRAL, tags.SEMGLUTEN]},
-	
 	{ id:6026,tags:[tags.INTEGRAL, tags.SEMGLUTEN]},
 	{ id: 6159, tags:[tags.INTEGRAL, tags.SEMGLUTEN]},
 	{ id:7475,tags:[tags.INTEGRAL, tags.SEMGLUTEN]},
@@ -159,6 +157,9 @@ const produtos = [
 	{ id:3165,tags:[]},
 	{ id: 1797, tags: [ tags.ZEROACUCAR ]},
 	{ id: 1796, tags: [ tags.ZEROACUCAR ]},
+	{ id: 1808, tags: [ tags.SEMGLUTEN, tags.SEMLACTOSE, tags.VEGANO ]},
+	{ id: 5682, tags: [ tags.SEMGLUTEN, tags.INTEGRAL, tags.VEGANO ]},
+	
 ];
 
 function tagnizar(produto) {

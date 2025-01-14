@@ -171,7 +171,7 @@ const produtos = [
 	{ id: 1810, tags: [ tags.SEMGLUTEN, tags.SEMLACTOSE ]},
 	//parei aqui, onde o produto é filtrado por nome
 	{ id: 1910, tags: [ tags.SEMGLUTEN, tags.SEMLACTOSE ]},
-	
+	{ id: 1911, tags: [ tags.SEMGLUTEN, tags.ZEROACUCAR, tags.VEGANO]},
 ];
 
 function tagnizar(produto) {

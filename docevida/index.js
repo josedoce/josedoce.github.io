@@ -169,9 +169,20 @@ const produtos = [
 	{ id: 1909, tags: [ tags.SEMGLUTEN, tags.VEGANO ]},
 	{ id: 1811, tags: [ tags.SEMGLUTEN, tags.SEMLACTOSE ]},
 	{ id: 1810, tags: [ tags.SEMGLUTEN, tags.SEMLACTOSE ]},
-	//parei aqui, onde o produto é filtrado por nome
+	
 	{ id: 1910, tags: [ tags.SEMGLUTEN, tags.SEMLACTOSE ]},
-	{ id: 1911, tags: [ tags.SEMGLUTEN, tags.ZEROACUCAR, tags.VEGANO]},
+	{ id: 1911, tags: [ tags.SEMGLUTEN, tags.ZEROACUCAR, tags.VEGANO ]},
+	{ id: 5684, tags: [ tags.SEMGLUTEN, tags.ZEROACUCAR, tags.VEGANO ]},
+	{ id: 8997, tags: [ tags.ZEROACUCAR ]},
+	{ id: 1111. tags: [ tags.ZEROACUCAR, tags.SEMLACTOSE ]},
+	{ id: 8996, tags: [ tags.ZEROACUCAR ]},
+	{ id: 1520, tags: [ tags.ZEROACUCAR ]},
+	{ id: 5180, tags: [ tags.ZEROACUCAR ]},
+	{ id: 1494, tags: [ tags.ZEROACUCAR ]},
+	{ id: 5179, tags: [ tags.ZEROACUCAR ]},
+	{ id: 7252, tags: [ tags.ZEROACUCAR ]},
+	//parei aqui, onde o produto é filtrado por nome
+	{ id: 7254, tags: [ tags.ZEROACUCAR ]},
 ];
 
 function tagnizar(produto) {

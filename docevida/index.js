@@ -181,11 +181,11 @@ const produtos = [
 	{ id: 1494, tags: [ tags.ZEROACUCAR ]},
 	{ id: 5179, tags: [ tags.ZEROACUCAR ]},
 	{ id: 7252, tags: [ tags.ZEROACUCAR ]},
-	//parei aqui, onde o produto é filtrado por nome
 	{ id: 7254, tags: [ tags.ZEROACUCAR ]},
 	{ id: 7255, tags: [ tags.ZEROACUCAR ]},
 	{ id: 1665, tags: [ tags.ZEROACUCAR, tags.VEGANO, tags.SEMLACTOSE ]},
 	{ id: 2629, tags: [ tags.SEMLACTOSE ]},
+	//parei aqui, onde o produto é filtrado por nome
 	{ id: 7332, tags: [ tags.SEMGLUTEN, tags.SEMLACTOSE ]}
 ];
 

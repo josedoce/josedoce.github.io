@@ -174,7 +174,7 @@ const produtos = [
 	{ id: 1911, tags: [ tags.SEMGLUTEN, tags.ZEROACUCAR, tags.VEGANO ]},
 	{ id: 5684, tags: [ tags.SEMGLUTEN, tags.ZEROACUCAR, tags.VEGANO ]},
 	{ id: 8997, tags: [ tags.ZEROACUCAR ]},
-	{ id: 1111. tags: [ tags.ZEROACUCAR, tags.SEMLACTOSE ]},
+	{ id: 1111, tags: [ tags.ZEROACUCAR, tags.SEMLACTOSE ]},
 	{ id: 8996, tags: [ tags.ZEROACUCAR ]},
 	{ id: 1520, tags: [ tags.ZEROACUCAR ]},
 	{ id: 5180, tags: [ tags.ZEROACUCAR ]},

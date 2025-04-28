@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mapa</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="./cidades.js"></script>
+    <script src="https://unpkg.com/dexie/dist/dexie.js"></script>
+<style>
+    *{
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    #map {
+        z-index: 1;
+        width: 100vw;
+        height: 100vh;
+        background-color: rgb(0, 0, 0);
+    }
+    #acoes {
+        position: absolute;
+        z-index: 2;
+        width: auto;
+        height: auto;
+        bottom: 10px;
+    }
+    #acoes>ul>li>button{
+        background-color: black;
+        color: #43e97b;
+        font-size: 20px;
+        margin: 0 5px;
+        padding: 5px 10px;
+        border-radius: 8px;
+    }
+
+    #acoes>ul>li>button:hover{
+        background-color: rgb(202, 202, 202);
+        color: black;
+        cursor: pointer;
+    }
+    #acoes>ul{
+       list-style: none;
+       display: flex;
+    }
+    #painel{
+        position: absolute;
+        display: none;
+        justify-content: center;
+        align-items: center;
+        z-index: 2;
+        width: 100vw;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.613);
+        color: white;
+    }
+    .formulario {
+        max-width: 500px;
+        height: auto;
+        background-color: aliceblue;
+        border-radius: 10px;
+        color: black;
+        padding: 40px 20px;
+        font-size: 20px;
+    }
+    .campo {
+        display: flex;
+        flex-direction: column;
+    }
+    .campo>input {
+        font-size: 26px;
+    }
+    .botao-salvar {
+        margin-top: 30px;
+    }
+    #mensagem {
+        color: red;
+        font-size: 15px;
+    }
+    #clientes{
+        position: absolute;
+        display: none;
+        
+        z-index: 2;
+        width: 100vw;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.613);
+        color: white;
+    }
+    #lista_clientes{
+        width: 100vw;
+        height: 100vh;
+        overflow-x: hidden;
+        overflow-y: hidden;
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        align-content: space-around;
+
+
+
+    }
+    .cidades_lista {
+        margin-top: 50px;
+        width: calc(90%/4);
+    }
+    .lista_zonas {
+        
+        overflow-y: scroll;
+        list-style: none;
+        
+        height: 80%;
+        padding-left: 20px;
+        padding-right: 0;
+    }
+    .conteudo_zona::marker {
+        content: '';
+    }
+
+    .conteudo_zona>h4 {
+        color: blueviolet;
+        margin-bottom: 10px;
+    }
+    .conteudo_zona{
+
+        display: block;
+        width: 100%;
+        color: black;
+        background-color: rgb(255, 255, 255);
+        margin: 20px 0;
+        padding: 16px 10px;
+        border-radius: 8px;
+    }
+    .botao_fechamento {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+    }
+
+    /* Estilizar a barra de rolagem */
+    .lista_zonas::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+    }
+
+    /* Parte de trás da barra */
+    .lista_zonas::-webkit-scrollbar-track {
+    background: #f0f0f0;
+    border-radius: 10px;
+    }
+
+    /* A "alça" da barra (a parte que se move) */
+    .lista_zonas::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #4facfe 0%, #00f2fe 100%);
+    border-radius: 10px;
+    }
+
+    /* Quando passar o mouse */
+    .lista_zonas::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, #43e97b 0%, #38f9d7 100%);
+    }
+
+    .cliente_item {
+        border-bottom: 1px solid black;
+    }
+    .botao_x {
+        background-color: black;
+        color: #43e97b;
+        font-size: 20px;
+        margin: 0 5px;
+        padding: 5px 10px;
+        border-radius: 8px;
+    }
+</style>
+</head>
+<body>
+    <div id="acoes">
+        <ul>
+            <li><button onclick="inicio()">Marco Zero</button></li>
+            <li><button onclick="adicionar()">Adicionar Ponto</button></li>
+            <li><button onclick="listar()">Lista de Pontos</button></li>
+        </ul>
+    </div>
+    <div id="clientes">
+        <button onclick="fecharListaClientes()" class="botao_fechamento">Sair</button>
+        <div id="lista_clientes">
+
+        </div>
+    </div>
+    <div id="painel" >
+        <div class="formulario">
+            <button onclick="fechar()" class="botao_x">X</button>
+            <h2>Adicionar cliente no mapa</h2>
+            
+
+            <div>
+                <label for="ponto_no_mapa">Selecionar no mapa</label>
+                <input type="radio" name="opcao_adicao" id="ponto_no_mapa">
+            </div>
+
+            <div>
+                <label for="selecionar">Selecionar bairro</label>
+                <input type="radio" name="opcao_adicao" id="selecionar">
+            </div>
+
+            <div>
+                <label for="cep">Cep</label>
+                <input type="radio" name="opcao_adicao" id="cep">
+            </div>
+
+            <div>
+                <label for="longlati">Longitude e Latitude</label>
+                <input type="radio" name="opcao_adicao" id="longlati">
+            </div>
+            <div class="campo">
+                <label for="input_cep">Digite o cep</label>
+                <input type="text" name="input_cep" id="input_cep">
+            </div>
+            <div>
+                <div class="campo"> 
+                    <label for="input_longitude">Digite a Longitude</label>
+                    <input type="text" name="input_longitude" id="input_longitude">
+                </div>
+                <div class="campo">
+                    <label for="input_latitude">Digite a Latitude</label>
+                    <input type="text" name="input_latitude" id="input_latitude">
+                </div>
+            </div>
+            <div class="campo">
+                <label for="input_client">Nome do cliente</label>
+                <input type="text" name="input_client" id="input_client">
+            </div>
+
+            <div class="campo">
+                <label for="input_nf">NF</label>
+                <input type="text" name="input_nf" id="input_nf">
+            </div>
+            <div class="campo">
+                <label for="cidades">Selecionar cidade</label>
+                <select  onchange="selecionar_cidade(event)" name="" id="cidades"></select>
+            </div>
+
+            <div class="campo">
+                <label for="bairros">Selecionar bairro</label>
+                <p id="mensagem"></p>
+                <select onchange="carregar_cordenada(event)" name="" id="bairros"></select>
+            </div>
+            <input type="hidden" name="campo_zona" id="campo_zona">
+
+            <div class="campo botao-salvar">
+                <button onclick="adicionarProduto(event)">Adicionar cliente</button>
+            </div>
+        </div>
+    </div>
+    <div id="map"></div>
+<script>
+   
+
+    const campo_nome = document.getElementById('input_client');
+    const campo_nf = document.getElementById('input_nf');
+    const campo_cep = document.getElementById('input_cep');
+    const campo_longitude = document.getElementById('input_longitude');
+    const campo_latitude = document.getElementById('input_latitude');
+    const campo_cidades = document.getElementById('cidades');
+    const campo_bairros = document.getElementById('bairros');
+    const campo_zona = document.getElementById('campo_zona');
+    const db = new Dexie("MapaDatabase");
+
+    // DB with single table "friends" with primary key "id" and
+    // indexes on properties "name" and "age"
+    db.version(1).stores({
+    clientes: `
+        ++id,
+        nome,
+        latitude,
+        longitude,
+        cep,
+        zona,
+        cidade,
+        bairro,
+        nf,
+        urgente,
+        varejo,
+        atacado
+        `,
+        
+    });
+
+    function verificadorCampo(campo, nome) {
+        if(campo.value == ""){
+            throw new Error(nome+ " está vazio.")
+        }
+    }
+
+    async function adicionarProduto(event) {
+        try{
+            verificadorCampo(campo_nome, "Nome");
+            verificadorCampo(campo_longitude, "Longitude");
+            verificadorCampo(campo_latitude, "Latitude");
+            verificadorCampo(campo_cep, "Cep");
+            verificadorCampo(campo_zona, "Zona");
+            verificadorCampo(campo_cidades, "Cidade");
+            verificadorCampo(campo_bairros, "Bairro");
+            verificadorCampo(campo_zona, "Zona");
+            verificadorCampo(campo_nf, "NF");
+            
+            event.target.disabled = true;
+            const campos = {
+                nome: campo_nome.value,
+                latitude: campo_latitude.value,
+                longitude: campo_longitude.value,
+                cep: campo_cep.value,
+
+                zona: campo_zona.value,
+                cidade: campo_cidades.options[campo_cidades.selectedIndex].textContent,
+                bairro: campo_bairros.options[campo_bairros.selectedIndex].textContent,
+                nf: input_nf.value,
+                urgente: 'n/d',
+                varejo: 'n/d',
+                atacado: 'n/d'
+            }
+        
+            await db.clientes.add(campos);
+            await listarClientes();
+            renderizarMapa()
+
+            event.target.disabled = false;
+            alert("Cliente adicionado.")
+        }catch(e){
+            alert(e.message);
+        }
+    }
+
+    async function listarClientes() {
+        const clientes = await db.clientes.toArray();
+        return clientes;
+    }
+
+   
+
+    const display_mensagem = document.getElementById('mensagem');
+    
+    campo_cidades.innerHTML= `
+            <option value="">Escolher cidade</option>
+        `
+    cidades.forEach((c)=>{
+        campo_cidades.innerHTML+= `
+            <option value="${c.cod}">${c.label}</option>
+        `
+    });
+
+    function carregar_bairros(cidade_cod) {
+        const bairros_cidade = bairros.filter((b)=> b.cod === Number(cidade_cod));
+        campo_bairros.innerHTML=`<option value="">Escolher bairro</option>`
+        
+        bairros_cidade.forEach((bc)=>{
+            campo_bairros.innerHTML+= `
+                <option value="${bc.faixas[0]},${bc.zona_cod}">${bc.bairro}</option>
+            `
+
+        })
+    }
+
+    function selecionar_cidade(event) {
+        carregar_bairros(event.target.value)
+    }
+
+
+    function carregar_cordenada(event) {
+
+        campo_cidades.disabled = true;
+        event.target.disabled = true;
+        const cep = event.target.value.split(',')[0]
+        const zona_cod = event.target.value.split(',')[1]
+        
+        axios.get(`https://cep.awesomeapi.com.br/json/${cep}`)
+        .then((res)=>{
+            input_longitude.value = res.data.lng;
+            input_latitude.value = res.data.lat;
+            input_cep.value = cep;
+            campo_zona.value = zonas.find(z=>z.zona_cod == Number(zona_cod)).label;
+        }).catch((err)=>{
+            console.log(err.message)
+            display_mensagem.innerText = "Erro: Não foi possivel obter coordenadas.";
+        }).finally(()=>{
+            campo_cidades.disabled = false;
+            event.target.disabled = false;
+        });
+    }
+    const painel = document.getElementById('painel');
+    function abrirPainel(elemento, colaterais = []) {
+        colaterais.forEach((c)=>{
+            if(c.ordem === 'PRE'){
+                c.calback(c.elemento)
+            }
+        });
+
+        elemento.style.display = 'flex';
+        
+        colaterais.forEach((c)=>{
+            if(c.ordem === 'POS'){
+                c.calback(c.elemento)
+            }
+        });
+    }
+
+    function fecharPainel(elemento, colaterais = []) {
+        colaterais.forEach((c)=>{
+            if(c.ordem === 'PRE'){
+                c.calback(c.elemento)
+            }
+        });
+
+    
+        elemento.style.display = 'none';
+
+        colaterais.forEach((c)=>{
+            if(c.ordem === 'POS'){
+                c.calback(c.elemento)
+            }
+        });
+    }
+
+const clientes = document.getElementById('clientes');
+const lista_clientes = document.getElementById('lista_clientes')
+
+async function excluirCliente(id) {
+    const confirmacao = confirm("Quer mesmo finnalizar esse ponto ?");
+    if(confirmacao){
+        await db.clientes.delete(id);
+    }
+    
+  alert('O ponto foi finalizado!');
+  renderizarMapa()
+  listar();
+}
+
+
+function fecharListaClientes() {
+    fecharPainel(clientes)
+}
+
+function listar() {
+    abrirPainel(clientes, [{
+        ordem: 'PRE',
+        elemento: undefined,
+        calback(e){
+            
+            listarClientes().then((cli)=>{
+                
+                lista_clientes.innerHTML=''
+
+                const clientes_porcidade = cidades.map((cid)=>{
+                    cid.clientes = cli.filter((c)=> c.cidade === String(cid.label));
+                    return cid;
+                });
+
+                
+                clientes_porcidade.forEach((c)=>{
+                    
+                    lista_clientes.innerHTML+= `
+                        <div class="cidades_lista">
+                            <h2>${c.label }</h2>
+
+                            <ul class="lista_zonas">
+                                ${zonas.filter((z)=> z.cidade === c.cod).map(e=>{
+                                    
+                                    return `
+                                        <li class="conteudo_zona">
+                                            <h4>${e.label}</h4>  
+                                            <ul class="lista_zonas">
+                                                ${c.clientes.filter((cc)=>cc.zona === e.label).map((cn)=>{
+                                                   
+                                                    return `
+                                                    <li class="cliente_item">
+                                                        <div>
+                                                            <strong>${cn.nome}</strong>  
+                                                            <br>
+                                                            <span>NF: ${cn.nf}</span>
+                                                        
+                                                        </div>
+                                                        <div>
+                                                            <button onclick="excluirCliente(${(cn.id)})">finalizar</butto>
+                                                        </div>  
+                                                    </li>`
+                                                }).join('') || `<li>Não existem pedidos aqui.</li>`}
+                                            </ul>
+                                        </li>
+                                    `
+                                }).join('')}
+
+                            </ul>
+
+                        </div>
+                    `
+                    
+                });
+            
+            })
+        }
+    }])
+}
+
+        const centro = [-8.068769, -34.877821];
+        const zoom = 12;
+        const map = L.map('map', {
+            center: centro,
+            zoom: zoom//zoom maximo
+        });
+
+        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: 'By JoseLindoEGostoso'
+}).addTo(map);
+
+
+let iconConfig = {
+    iconUrl: 'logo_colorida.webp',
+    shadowUrl: 'logo_colorida.webp',
+
+    iconSize:     [40, 40], // size of the icon
+    shadowSize:   [0, 0], // size of the shadow
+    iconAnchor:   [22, 0], // point of the icon which will correspond to marker's location
+    shadowAnchor: [0, 0],  // the same for the shadow
+    popupAnchor:  [0, 0] // point from which the popup should open relative to the iconAnchor
+}
+
+const greenIcon = L.icon(iconConfig);
+
+L.marker(centro, {icon: greenIcon}).addTo(map);
+
+iconConfig.iconUrl = 'user.png';
+iconConfig.shadowUrl = 'user.png';
+
+
+
+const icon2 = L.icon(iconConfig);
+
+function renderizarMapa() {
+    listarClientes().then((clientes)=>{
+
+
+        clientes.forEach((c, i, arr)=>{
+
+            
+            const tem_mais_clientes_no_ponto = arr.filter((a)=>{
+                if(a.latitude === c.latitude && a.longitude === c.longitude){
+                    return true;
+                }
+
+                return false;
+            })
+            
+            const config_muitos_pontos =  {
+                icon: L.divIcon({
+                    html: `<div class="marker-quantidade">
+                            <img src="./user.png" width="40" height="40"/>
+                            ${tem_mais_clientes_no_ponto.length}
+                        </div>`,
+                    className: '', // remove o estilo padrão
+                    iconSize: [50, 50],
+                    iconAnchor: [15, 15]
+                })
+            }
+            
+            if(tem_mais_clientes_no_ponto.length > 1){
+                const clientes = tem_mais_clientes_no_ponto.map((cli)=>{
+                    return `nf: ${cli.nf} - ${cli.nome}`;
+                })
+                L.marker([Number(c.latitude), Number(c.longitude)], config_muitos_pontos).bindPopup(`${clientes.join('<br>')}`).addTo(map);
+            }else{
+                L.marker([Number(c.latitude), Number(c.longitude)], {icon: icon2, title: 'oie', alt: 'oie', html: 'oie'}).bindPopup(`nf: ${c.nf} - ${c.nome}`).addTo(map);
+            }
+          
+        })
+    })
+}
+renderizarMapa()
+
+function inicio(){
+    map.setView(centro, zoom);
+}
+
+function fechar() {
+    fecharPainel(painel);
+}
+function adicionar() {
+    abrirPainel(painel);   
+}
+
+
+
+map.on('dblclick', function(ev) {
+    console.log(map)
+   // alert(ev.latlng); // ev is an event object (MouseEvent in this case)
+});
+
+map.on('zoom', function(ev){
+    console.log(ev)
+})
+    </script>
+</body>
+</html>

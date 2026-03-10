@@ -55,6 +55,9 @@ const tags = {
 const produtos = [
 	
 	{ id: 2624, tags: [tags.SEMGLUTEN, tags.VEGANO]},
+	{ id: 3296, tags: [tags.SEMGLUTEN, tags.VEGANO]},
+	{ id: 3199, tags: [tags.SEMGLUTEN, tags.VEGANO]},
+	{ id: 2624, tags: [tags.SEMGLUTEN, tags.VEGANO]},
 	{ id: 3205, tags: [tags.SEMGLUTEN, tags.VEGANO]},
 	{ id: 3259, tags: [tags.SEMGLUTEN, tags.VEGANO]},
 	{ id:1094,tags:[tags.SEMGLUTEN]},
@@ -91,8 +94,8 @@ const produtos = [
 	{ id:2256,tags:[]},
 	{ id:2621,tags:[]},
 	{ id:2622,tags:[]},
-	{ id:2623,tags:[tags.VEGANO]},
-	{ id:2625,tags:[tags.VEGANO]},
+	{ id:2623,tags:[tags.VEGANO, tags.SEMGLUTEN]},
+	{ id:2625,tags:[tags.VEGANO, tags.SEMGLUTEN]},
 	{ id:1099,tags:[tags.SEMGLUTEN, tags.INTEGRAL ]},
 	{ id:1791,tags:[tags.SEMGLUTEN]},
 	{ id:1835,tags:[tags.SEMGLUTEN ]},

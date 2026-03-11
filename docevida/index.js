@@ -53,6 +53,25 @@ const tags = {
 }
 
 const produtos = [
+	
+	{ id: 5083, tags: [tags.ZEROSODIO]},
+	{ id: 5081, tags: [tags.ZEROSODIO]},
+	{ id: 5080, tags: [tags.ZEROSODIO]},
+	{ id: 5079, tags: [tags.ZEROSODIO]},
+	{ id: 5078, tags: [tags.ZEROSODIO]},
+	{ id: 5077, tags: [tags.ZEROSODIO]},
+	{ id: 5084, tags: [tags.ZEROSODIO]},
+	{ id: 982, tags: [tags.ZEROSODIO]},
+	{ id: 819, tags: [tags.ZEROSODIO]},
+	{ id: 141, tags: [tags.ZEROSODIO]},
+	{ id: 155, tags: [tags.ZEROSODIO]},
+	{ id: 933, tags: [tags.ZEROSODIO]},
+	{ id: 983, tags: [tags.ZEROSODIO]},
+	{ id: 883, tags: [tags.ZEROSODIO]},
+	{ id: 68, tags: [tags.ZEROSODIO]},
+	{ id: 19, tags: [tags.ZEROSODIO]},
+	{ id: 981, tags: [tags.ZEROSODIO]},
+	
 	{ id: 5201, tags: [tags.ZEROACUCAR]},
 	{ id: 5188, tags: [tags.ZEROACUCAR]},
 	{ id: 5187, tags: [tags.ZEROACUCAR]},

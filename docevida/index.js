@@ -53,7 +53,11 @@ const tags = {
 }
 
 const produtos = [
-	
+
+	{ id: 6753, tags: [tags.SEMGLUTEN, tags.ORGANICO]},
+	{ id: 3170, tags: [tags.SEMGLUTEN, tags.ORGANICO]},
+	{ id: 3169, tags: [tags.SEMGLUTEN, tags.ORGANICO]},
+	{ id: 5261, tags: [tags.SEMGLUTEN]},
 	{ id: 5083, tags: [tags.ZEROSODIO]},
 	{ id: 5081, tags: [tags.ZEROSODIO]},
 	{ id: 5080, tags: [tags.ZEROSODIO]},

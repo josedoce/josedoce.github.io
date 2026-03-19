@@ -50,15 +50,26 @@ const INTEGRAL = {
 	link: 'https://www.emporiodocevida.com.br/loja/busca.php?loja=1113620&palavra_busca=integral'
 };
 
+//MENSAGENS PARA COMMIT
+//Adicionar tag
+//Remover tag
 const produtos = [
-	
+	{ id: 5257, tags: [VEGANO]},
+	{ id: 5255, tags: [VEGANO]},
+	{ id: 5254, tags: [VEGANO]},
+	{ id: 5253, tags: [VEGANO]},
+	{ id: 5252, tags: [VEGANO]},
+	{ id: 5245, tags: [VEGANO]},
+	{ id: 5247, tags: [VEGANO]},
 	{ id: 5258, tags: [VEGANO]},
 	{ id: 5246, tags: [VEGANO]},
+
 	{ id: 5222, tags: [SEMLACTOSE, ZEROACUCAR]},
 	{ id: 6753, tags: [SEMGLUTEN, ORGANICO]},
 	{ id: 3170, tags: [SEMGLUTEN, ORGANICO]},
 	{ id: 3169, tags: [SEMGLUTEN, ORGANICO]},
-	{ id: 5261, tags: [SEMGLUTEN]},
+	{ id: 5260, tags: [SEMGLUTEN, ORGANICO]},
+	{ id: 5261, tags: [SEMGLUTEN, ORGANICO]},
 	{ id: 5083, tags: [ZEROSODIO]},
 	{ id: 5081, tags: [ZEROSODIO]},
 	{ id: 5080, tags: [ZEROSODIO]},

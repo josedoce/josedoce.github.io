@@ -64,7 +64,20 @@ const produtos = [
 	{ id: 5258, tags: [VEGANO]},
 	{ id: 5246, tags: [VEGANO]},
 
+	{ id: 2600, tags: [ZEROACUCAR]},
+	{ id: 9110, tags: [SEMGLUTEN]},
+	{ id: 2483, tags: [SEMGLUTEN]},
+
+	{ id: 3106, tags: [SEMGLUTEN, SEMLACTOSE]},
+	{ id: 3107, tags: [SEMGLUTEN, SEMLACTOSE]},
+	{ id: 6754, tags: [SEMGLUTEN, SEMLACTOSE]},
+
+	{ id: 5132, tags: [SEMGLUTEN]},
+	
+	{ id: 5224, tags: [SEMLACTOSE, ZEROACUCAR]},
+	{ id: 5223, tags: [SEMLACTOSE, ZEROACUCAR]},
 	{ id: 5222, tags: [SEMLACTOSE, ZEROACUCAR]},
+
 	{ id: 6753, tags: [SEMGLUTEN, ORGANICO]},
 	{ id: 3170, tags: [SEMGLUTEN, ORGANICO]},
 	{ id: 3169, tags: [SEMGLUTEN, ORGANICO]},

@@ -52,6 +52,7 @@ const INTEGRAL = {
 
 const produtos = [
 	
+	{ id: 5258, tags: [VEGANO]},
 	{ id: 5246, tags: [VEGANO]},
 	{ id: 5222, tags: [SEMLACTOSE, ZEROACUCAR]},
 	{ id: 6753, tags: [SEMGLUTEN, ORGANICO]},
@@ -232,7 +233,7 @@ const produtos = [
 
 function tagnizar(produto) {
 
-	if(produto.length === 0) {
+	if(produto.tags.length === 0) {
 		return
 	}
 	const elementoAlvo = document.querySelectorAll(`.tag-${produto.id}`);
@@ -241,7 +242,7 @@ function tagnizar(produto) {
 	}
 
 	elementoAlvo.forEach((ea)=>{
-		produto.forEach((p)=>{
+		produto.tags.forEach((p)=>{
 			ea.innerHTML+=`<a href="${p.link}">${p.titulo}</a>`;
 		});
 	});

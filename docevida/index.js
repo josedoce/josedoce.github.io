@@ -51,7 +51,9 @@ const INTEGRAL = {
 };
 
 const produtos = [
-
+	
+	{ id: 5246, tags: [VEGANO]},
+	{ id: 5222, tags: [SEMLACTOSE, ZEROACUCAR]},
 	{ id: 6753, tags: [SEMGLUTEN, ORGANICO]},
 	{ id: 3170, tags: [SEMGLUTEN, ORGANICO]},
 	{ id: 3169, tags: [SEMGLUTEN, ORGANICO]},

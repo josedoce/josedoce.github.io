@@ -25,7 +25,7 @@ const VEGANO = {
 };
 const NATURAL = {
 	id: 5,
-	titulo: 'Natural',
+	titulo: '100% Natural',
 	link: 'https://www.emporiodocevida.com.br/produtos-naturais',
 };
 const CHOCOLATE = {
@@ -54,6 +54,38 @@ const INTEGRAL = {
 //Adicionar tag
 //Remover tag
 const produtos = [
+	
+	{ id: 1626 , tags:[INTEGRAL, VEGANO, SEMLACTOSE]},
+	{ id: 5134 , tags:[INTEGRAL, VEGANO, SEMLACTOSE]},
+	{ id: 6267 , tags:[INTEGRAL, VEGANO, SEMLACTOSE]},
+	{ id: 7867, tags:[INTEGRAL, VEGANO, SEMLACTOSE]},
+	{ id: 1213, tags:[SEMLACTOSE, SEMGLUTEN, ZEROACUCAR]},
+	{ id: 1215, tags:[SEMLACTOSE, SEMGLUTEN, ZEROACUCAR]},
+
+	{ id: 7386, tags:[ZEROACUCAR, SEMGLUTEN]},
+	{ id: 1764, tags:[ZEROACUCAR]},
+	{ id: 2482, tags:[ZEROACUCAR, SEMGLUTEN, SEMLACTOSE]},
+
+	{ id: 2480, tags:[ZEROACUCAR, SEMGLUTEN, SEMLACTOSE]},
+
+	{ id: 2484, tags:[ZEROACUCAR, SEMGLUTEN]},
+	{ id: 2597, tags:[ZEROACUCAR, SEMGLUTEN]},
+	{ id: 2598, tags:[ZEROACUCAR, SEMGLUTEN]},
+	{ id: 2599, tags:[SEMGLUTEN, ZEROACUCAR, ZEROSODIO]},
+	{ id: 3177, tags:[SEMGLUTEN]},
+	{ id: 1101, tags:[SEMGLUTEN]},
+	{ id: 1102, tags:[ZEROACUCAR, SEMGLUTEN]},
+	{ id: 1552, tags:[ZEROACUCAR, SEMGLUTEN]},
+	{ id: 5535, tags:[ZEROACUCAR, SEMGLUTEN]},
+	{ id: 5536, tags:[SEMGLUTEN, ZEROACUCAR]},
+	{ id: 6268, tags:[ZEROACUCAR, SEMGLUTEN]},
+	{ id: 8907, tags:[SEMGLUTEN]},
+	{ id: 9105, tags:[ZEROACUCAR, SEMGLUTEN]},
+	{ id: 9108, tags:[ZEROACUCAR, SEMGLUTEN]},
+	{ id: 9107, tags:[ZEROACUCAR, SEMGLUTEN]},
+	{ id: 3211, tags: [SEMGLUTEN, NATURAL, ZEROACUCAR]},
+	{ id: 3212, tags: [SEMGLUTEN, NATURAL, ZEROACUCAR]},
+	{ id: 3213, tags: [SEMGLUTEN, NATURAL, ZEROACUCAR]},
 	{ id: 5257, tags: [VEGANO]},
 	{ id: 5255, tags: [VEGANO]},
 	{ id: 5254, tags: [VEGANO]},
@@ -63,21 +95,16 @@ const produtos = [
 	{ id: 5247, tags: [VEGANO]},
 	{ id: 5258, tags: [VEGANO]},
 	{ id: 5246, tags: [VEGANO]},
-
 	{ id: 2600, tags: [ZEROACUCAR]},
 	{ id: 9110, tags: [SEMGLUTEN]},
 	{ id: 2483, tags: [SEMGLUTEN]},
-
 	{ id: 3106, tags: [SEMGLUTEN, SEMLACTOSE]},
 	{ id: 3107, tags: [SEMGLUTEN, SEMLACTOSE]},
 	{ id: 6754, tags: [SEMGLUTEN, SEMLACTOSE]},
-
 	{ id: 5132, tags: [SEMGLUTEN]},
-	
 	{ id: 5224, tags: [SEMLACTOSE, ZEROACUCAR]},
 	{ id: 5223, tags: [SEMLACTOSE, ZEROACUCAR]},
 	{ id: 5222, tags: [SEMLACTOSE, ZEROACUCAR]},
-
 	{ id: 6753, tags: [SEMGLUTEN, ORGANICO]},
 	{ id: 3170, tags: [SEMGLUTEN, ORGANICO]},
 	{ id: 3169, tags: [SEMGLUTEN, ORGANICO]},
@@ -100,7 +127,6 @@ const produtos = [
 	{ id: 68, tags: [ZEROSODIO]},
 	{ id: 19, tags: [ZEROSODIO]},
 	{ id: 981, tags: [ZEROSODIO]},
-	
 	{ id: 5201, tags: [ZEROACUCAR]},
 	{ id: 5188, tags: [ZEROACUCAR]},
 	{ id: 5187, tags: [ZEROACUCAR]},
@@ -114,7 +140,6 @@ const produtos = [
 	{ id: 2624, tags: [SEMGLUTEN, VEGANO]},
 	{ id: 3296, tags: [SEMGLUTEN, VEGANO]},
 	{ id: 3199, tags: [SEMGLUTEN, VEGANO]},
-	
 	{ id: 3205, tags: [SEMGLUTEN, VEGANO]},
 	{ id: 3259, tags: [SEMGLUTEN, VEGANO]},
 	{ id:1094,tags:[SEMGLUTEN]},
@@ -136,7 +161,7 @@ const produtos = [
 	{ id:2231,tags:[ SEMLACTOSE, SEMGLUTEN, ZEROACUCAR]},
 	{ id:2502,tags:[SEMGLUTEN]},
 	{ id:2503,tags:[ZEROACUCAR, SEMGLUTEN]},
-	{ id:2542,tags:[ZEROACUCAR]},
+	{ id:2542,tags:[ZEROACUCAR, SEMGLUTEN]},
 	{ id:2603,tags:[SEMLACTOSE, SEMGLUTEN]},
 	{ id:2610,tags:[]},
 	{ id:2629,tags:[SEMGLUTEN, SEMLACTOSE]},
@@ -171,7 +196,7 @@ const produtos = [
 	{ id:1497,tags:[ZEROACUCAR, SEMGLUTEN, SEMLACTOSE]},
 	{ id:2613,tags:[ZEROACUCAR]},
 	{ id:2223,tags:[]},
-	{ id:3177,tags:[]},
+	
 	{ id:3181,tags:[SEMGLUTEN]},
 	{ id:3182,tags:[SEMGLUTEN]},
 	{ id:3183,tags:[]},
@@ -180,8 +205,8 @@ const produtos = [
 	{ id:3186,tags:[SEMGLUTEN]},
 	{ id:3187,tags:[SEMGLUTEN]},
 	{ id:3188,tags:[SEMLACTOSE]},
-	{ id:2325,tags:[]},
-	{ id:2336,tags:[]},
+	
+	
 	{ id:2456,tags:[]},
 	{ id:2461,tags:[]},
 	{ id:2467,tags:[]},
@@ -233,7 +258,6 @@ const produtos = [
 	{ id: 1909, tags: [ SEMGLUTEN, VEGANO ]},
 	{ id: 1811, tags: [ SEMGLUTEN, SEMLACTOSE ]},
 	{ id: 1810, tags: [ SEMGLUTEN, SEMLACTOSE ]},
-	
 	{ id: 1910, tags: [ SEMGLUTEN, SEMLACTOSE ]},
 	{ id: 1911, tags: [ SEMGLUTEN, ZEROACUCAR, VEGANO ]},
 	{ id: 5684, tags: [ SEMGLUTEN, ZEROACUCAR, VEGANO ]},

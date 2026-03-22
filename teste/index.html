@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Pegavar</title>
+  </head>
+  <body></body>
+  <script>
+    const params = new URLSearchParams(window.location.search);
+
+    const code = params.get("code");
+    const shopId = params.get("shop_id");
+    
+    console.log(code, shopId);
+
+    window.location.replace(`http://cranca.test/gerar_token?codigo=${code}&loja_id=${shopId}`);
+  </script>
+</html>

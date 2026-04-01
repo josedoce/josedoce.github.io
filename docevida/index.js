@@ -54,6 +54,16 @@ const INTEGRAL = {
 //Adicionar tag
 //Remover tag
 const produtos = [
+
+	{ id: 5055, tags: [SEMGLUTEN, SEMLACTOSE]},
+	{ id: 5264, tags: [SEMGLUTEN, SEMLACTOSE]},
+	{ id: 5265, tags: [SEMGLUTEN]},
+	
+	{ id: 5065, tags: [SEMGLUTEN]},
+	{ id: 1100, tags: [SEMGLUTEN]},
+	{ id: 5721, tags: [SEMGLUTEN]},
+	{ id: 6139, tags: [INTEGRAL, SEMGLUTEN]},
+	{ id: 6140, tags: [INTEGRAL, SEMGLUTEN]},
 	{ id: 6141, tags: [SEMGLUTEN]},
 	{ id: 6142, tags: [SEMGLUTEN]},
 	{ id: 7987, tags: [SEMGLUTEN, INTEGRAL]},

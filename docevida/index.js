@@ -186,7 +186,7 @@ const produtos = [
 	{ id: 5203, tags: [ZEROACUCAR]},
 	{ id: 5167, tags: [SEMGLUTEN, VEGANO]},
 	{ id: 5166, tags: [SEMGLUTEN, VEGANO, ZEROSODIO]},
-	{ id: 5165, tags: [SEMGLUTEN, VEGANO, SEMLACTOSE]},
+	
 	{ id: 5165, tags: [SEMGLUTEN, VEGANO, SEMLACTOSE]},
 	{ id: 5164, tags: [SEMGLUTEN, VEGANO, SEMLACTOSE]},
 	{ id: 2624, tags: [SEMGLUTEN, VEGANO]},
